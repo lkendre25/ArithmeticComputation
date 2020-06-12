@@ -20,20 +20,19 @@ read -p "Enter the Third Number" c
 
 	for i in ${!ans[@]}
 	do
-		for j in $i
+		for j in ${!ans[@]}
 		do
- 			if [ ${ans[$j]} -gt ${ans[1]} ]
+ 			if [ ${ans[$j]} -gt ${ans[j+1]} ]
 			then
 					temp=${ans[j]}
-					${ans[j]} = ${ans[1]}
-					${ans[1]} = $temp
+					${ans[j]} = ${ans[j+1]}
+					${ans[j+1]} = $temp
 
 			fi
-			echo "j : $j "
-			echo "i : $i "
+			#echo "j : $j "
+			#echo "i : $i "
 		done
-
-		echo ${ans[1]}
+#		echo ${ans[@]}
 	done
-echo ${ans[temp]}
-
+#echo ${ans[temp]}
+echo ${ans[@]}
